@@ -15,9 +15,9 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     user = await user_collection.find_one({'id': user_id})
     if not user:
         if update.message:
-            await update.message.reply_text('You Have Not Guessed any Characters Yet..')
+            await update.message.reply_text('Nigga CollectSome Character First..')
         else:
-            await update.callback_query.edit_message_text('You Have Not Guessed any Characters Yet..')
+            await update.callback_query.edit_message_text('Collectsome Character First..')
         return
 
     characters = sorted(user['characters'], key=lambda x: (x['anime'], x['id']))
@@ -107,7 +107,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
                         await update.callback_query.edit_message_text(harem_message, parse_mode='HTML', reply_markup=reply_markup)
         else:
             if update.message:
-                await update.message.reply_text("Your List is Empty :)")
+                await update.message.reply_text("First Collect Some Character:)")
 
 
 async def harem_callback(update: Update, context: CallbackContext) -> None:
@@ -132,7 +132,7 @@ async def harem_callback(update: Update, context: CallbackContext) -> None:
 
 
 
-application.add_handler(CommandHandler(["harem", "collection"], harem,block=False))
+application.add_handler(CommandHandler(["collection"], harem,block=False))
 harem_handler = CallbackQueryHandler(harem_callback, pattern='^harem', block=False)
 application.add_handler(harem_handler)
     
