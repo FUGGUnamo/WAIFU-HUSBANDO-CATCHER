@@ -35,30 +35,29 @@ async def start(update: Update, context: CallbackContext) -> None:
         
         caption = f"""
         ***Heyyyy...***
-
-***I am An Open Source Character Catcher Bot...​Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***
+ ***🌸𝙄 𝙖𝙢 𝘼𝙣 𝘽𝙤𝙩 𝙒𝙝𝙤 𝘾𝙧𝙚𝙖𝙩 𝙃𝙖𝙧𝙚𝙢𝙨 𝙊𝙛 𝙔𝙤𝙪𝙧𝙨 𝘼𝙣𝙞𝙢𝙚 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜 𝘽𝙤𝙩..​𝘼𝙙𝙙 𝙈𝙚 𝙞𝙣 𝙔𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥.. 𝘼𝙣𝙙 𝙄 𝙬𝙞𝙡𝙡 𝙨𝙚𝙣𝙙 𝙍𝙖𝙣𝙙𝙤𝙢 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝘼𝙛𝙩𝙚𝙧.. 𝙚𝙫𝙚𝙧𝙮 100 𝙢𝙚𝙨𝙨𝙖𝙜𝙚𝙨 𝙞𝙣 𝙂𝙧𝙤𝙪𝙥... 𝙐𝙨𝙚 /𝙘𝙤𝙡𝙡𝙚𝙘𝙩 𝙩𝙤.. 𝘾𝙤𝙡𝙡𝙚𝙘𝙩 𝙩𝙝𝙖𝙩 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝙞𝙣 𝙔𝙤𝙪𝙧 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙤𝙣.. 𝙖𝙣𝙙 𝙨𝙚𝙚 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙤𝙣 𝙗𝙮 𝙪𝙨𝙞𝙣𝙜 /𝙃𝙖𝙧𝙚𝙢... 𝙎𝙤 𝙖𝙙𝙙 𝙞𝙣 𝙔𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙖𝙣𝙙 𝘾𝙤𝙡𝙡𝙚𝙘𝙩 𝙔𝙤𝙪𝙧 𝙃𝙖𝙧𝙚𝙢🌸***
         """
         
         keyboard = [
             [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/{UPDATE_CHAT}')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/namoHaremChat{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/namopdates{UPDATE_CHAT}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/MyNameIsShekhar/WAIFU-HUSBANDO-CATCHER')]
+         
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        photo_url = random.choice(PHOTO_URL)
+        photo_url = random.choice("photo url", url=f'https://graph.org/file/877aecc1642bbb4804e3e.jpg')
 
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
     else:
-        photo_url = random.choice(PHOTO_URL)
+        photo_url = random.choice ("photo url", url=f'https://graph.org/file/877aecc1642bbb4804e3e.jpg')]
         keyboard = [
             [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/MyNameIsShekhar/WAIFU-HUSBANDO-CATCHER')]
+            
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -72,15 +71,15 @@ async def button(update: Update, context: CallbackContext) -> None:
         help_text = """
     ***Help Section:***
     
-***/guess: To Guess character (only works in group)***
+***/collect: To Guess character (only works in group)***
 ***/fav: Add Your fav***
 ***/trade : To trade Characters***
 ***/gift: Give any Character from Your Collection to another user.. (only works in groups)***
 ***/collection: To see Your Collection***
 ***/topgroups : See Top Groups.. Ppl Guesses Most in that Groups***
 ***/top: Too See Top Users***
-***/ctop : Your ChatTop***
-***/changetime: Change Character appear time (only works in Groups)***
+***/htop : Your HaremTop***
+***/settime: Change Character appear time (only works in Groups)***
    """
         help_keyboard = [[InlineKeyboardButton("⤾ Bᴀᴄᴋ", callback_data='back')]]
         reply_markup = InlineKeyboardMarkup(help_keyboard)
@@ -91,9 +90,8 @@ async def button(update: Update, context: CallbackContext) -> None:
 
         caption = f"""
         ***Hoyyyy...*** ✨
-
-***I am An Open Source Character Catcher Bot..​Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***
-        """
+    
+    ***🌸𝙄 𝙖𝙢 𝘼𝙣 𝘽𝙤𝙩 𝙒𝙝𝙤 𝘾𝙧𝙚𝙖𝙩 𝙃𝙖𝙧𝙚𝙢𝙨 𝙊𝙛 𝙔𝙤𝙪𝙧𝙨 𝘼𝙣𝙞𝙢𝙚 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜 𝘽𝙤𝙩..​𝘼𝙙𝙙 𝙈𝙚 𝙞𝙣 𝙔𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥.. 𝘼𝙣𝙙 𝙄 𝙬𝙞𝙡𝙡 𝙨𝙚𝙣𝙙 𝙍𝙖𝙣𝙙𝙤𝙢 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝘼𝙛𝙩𝙚𝙧.. 𝙚𝙫𝙚𝙧𝙮 100 𝙢𝙚𝙨𝙨𝙖𝙜𝙚𝙨 𝙞𝙣 𝙂𝙧𝙤𝙪𝙥... 𝙐𝙨𝙚 /𝙘𝙤𝙡𝙡𝙚𝙘𝙩 𝙩𝙤.. 𝘾𝙤𝙡𝙡𝙚𝙘𝙩 𝙩𝙝𝙖𝙩 𝘾𝙝𝙖𝙧𝙖𝙘𝙩𝙚𝙧𝙨 𝙞𝙣 𝙔𝙤𝙪𝙧 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙤𝙣.. 𝙖𝙣𝙙 𝙨𝙚𝙚 𝘾𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙤𝙣 𝙗𝙮 𝙪𝙨𝙞𝙣𝙜 /𝙃𝙖𝙧𝙚𝙢... 𝙎𝙤 𝙖𝙙𝙙 𝙞𝙣 𝙔𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙖𝙣𝙙 𝘾𝙤𝙡𝙡𝙚𝙘𝙩 𝙔𝙤𝙪𝙧 𝙃𝙖𝙧𝙚𝙢🌸***
 
         
         keyboard = [
@@ -101,7 +99,7 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/MyNameIsShekhar/WAIFU-HUSBANDO-CATCHER')]
+            
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
