@@ -12,7 +12,7 @@ img_url character-name anime-name rarity-number
 
 use rarity number accordingly rarity Map
 
-rarity_map = 1 (⚪️ Common), 2 (🟣 Rare) , 3 (🟡 Legendary), 4 (🟢 Medium)"""
+rarity_map = 1 (⚪️ Common), 2 (🟣 Rare) , 3 (🟡 Legendary), 4 (🟢 Medium), 5 (✨️ Special)"""
 
 
 
@@ -48,7 +48,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
             await update.message.reply_text('Invalid URL.')
             return
 
-        rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium"}
+        rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium" 5: "✨️ special"}
         try:
             rarity = rarity_map[int(args[3])]
         except KeyError:
@@ -58,11 +58,12 @@ async def upload(update: Update, context: CallbackContext) -> None:
         id = str(await get_next_sequence_number('character_id')).zfill(2)
 
         character = {
-            'img_url': args[0],
-            'name': character_name,
-            'anime': anime,
-            'rarity': rarity,
-            'id': id
+            'img_url': Args[0],
+            'Name': Character_name,
+            'Anime': Anime,
+            'Rarity': Rarity,
+            'Id': Id
+            
         }
 
         try:
@@ -132,7 +133,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         if args[1] in ['name', 'anime']:
             new_value = args[2].replace('-', ' ').title()
         elif args[1] == 'rarity':
-            rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium", 5: "💮 Special edition"}
+            rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium", 5: "✨️ Special edition"}
             try:
                 new_value = rarity_map[int(args[2])]
             except KeyError:
